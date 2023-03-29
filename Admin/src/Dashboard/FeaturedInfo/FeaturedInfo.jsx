@@ -4,14 +4,20 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 import { userRequest } from '../../requestMethods';
 const FeaturedInfo = () => {
   const [income, setIncome] = useState([]);
-  const [perc, setPerc] = useState(0);
+  const [petrostation,setPetrostation] = useState([]);
+  const [user,setUser] = useState([]);
 
   useEffect(() => {
     const getIncome = async () => {
       try {
-        const res = await userRequest.get("/order/income");
-        setIncome(res.data);
-        setPerc((res.data[1].total * 100) / res.data[0].total - 100);
+        const res = await userRequest.get("/petrostation/getPetro");
+        const userDt = await userRequest.get('/user/getUser');
+        console.log(res.data)
+        console.log(userDt.data)
+        setUser(userDt.data)
+        setPetrostation(res.data)
+        // setIncome(res.data);
+        // setPerc((res.data[1].total * 100) / res.data[0].total - 100);
       } catch {}
     };
     getIncome();
@@ -20,39 +26,17 @@ const FeaturedInfo = () => {
   return (
 <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">Revenue</span>
+        <span className="featuredTitle">Users Registered</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">${income[1] ? income[1]?.total : income[0]?.total }</span>
-          <span className="featuredMoneyRate">
-          %{Math.floor(perc)}{" "}
-            {perc < 0 ? (
-              <ArrowDownward className="featuredIcon negative" />
-            ) : (
-              <ArrowUpward className="featuredIcon" />
-            )}
-          </span> 
+          <span className="featuredMoney">{user.length}</span>
         </div>
-        <span className="featuredSub">Compared to last month</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Covers Sold</span>
+        <span className="featuredTitle">Petrostation Registered</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">2000</span>
-          <span className="featuredMoneyRate">
-            -1.4 <ArrowDownward className="featuredIcon negative"/>
-          </span>
+          <span className="featuredMoney">{petrostation.length}</span>
         </div>
-        <span className="featuredSub">Compared to last month</span>
-      </div>
-      <div className="featuredItem">
-        <span className="featuredTitle">Compensations Awarded</span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">500</span>
-          <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon"/>
-          </span>
-        </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="featuredSub"></span>
       </div>
     </div>
   )

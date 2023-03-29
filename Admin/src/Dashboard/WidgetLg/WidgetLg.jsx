@@ -23,7 +23,7 @@ const WidgetLg = () => {
       console.log(claims)
   return (
 <div className="widgetLg">
-      <h3 className="widgetLgTitle">Approved Insurance Cover</h3>
+      <h3 className="widgetLgTitle">Paid order</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
           <th className="widgetLgTh">Customer</th>
@@ -45,8 +45,6 @@ const WidgetLg = () => {
         </tr>
         ))
         }
-
-       
       </table>
     </div>
   )

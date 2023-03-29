@@ -60,38 +60,28 @@ const Contact = () => {
               <div className="contact__info">
                 <h6 className="fw-bold">Contact Information</h6>
                 <p className="section__description mb-0">
-               Location: Tanzania region Dar es salaam, District Kinondoni  
+               
                 </p>
                 <p className="section__description mb-0">
-               Address: Kinondoni  Postal code 14110, Hananasif street near Hananasif Hospital.
+               
                 </p>
                 <div className=" d-flex align-items-center gap-2">
                   <h6 className="fs-6 mb-0">Phone:</h6>
-                  <p className="section__description mb-0">+255693452233</p>
-                  <p className="section__description mb-0">+255789599948</p>
-                  <p className="section__description mb-0">+254710216071</p>
+                  <p className="section__description mb-0"></p>
+                  <p className="section__description mb-0"></p>
+                  <p className="section__description mb-0"></p>
                 </div>
 
                 <div className=" d-flex align-items-center gap-2">
                   <h6 className="mb-0 fs-6">Email:</h6>
-                  <p className="section__description mb-0">info@srfleet.com</p>
+                  <p className="section__description mb-0"></p>
                 </div>
 
                 <h6 className="fw-bold mt-4">Follow Us</h6>
 
                 <div className=" d-flex align-items-center gap-4 mt-3">
-                  {/* {socialLinks.map((item, index) => (
-                    <a
-                      href="https://instagram.com/sr_fleetmanagement?igshid=YmMyMTA2M2Y="
-                      target='_blank'
-                      key={index}
-                      className="social__link-icon" rel="noreferrer"
-                    >
-                      <i class={item.icon}></i>
-                    </a>
-                  ))} */}
                       <a
-                      href="https://wa.me/+254710216071"
+                      href="#"
                       target='_blank'
 
                       className="social__link-icon" rel="noreferrer"
@@ -99,7 +89,7 @@ const Contact = () => {
                       <i className='ri-whatsapp-line'></i>
                     </a>
                     <a
-                      href="https://instagram.com/sr_fleetmanagement?igshid=YmMyMTA2M2Y="
+                      href="#"
                       target='_blank'
                       className="social__link-icon" rel="noreferrer"
                     >

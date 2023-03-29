@@ -93,7 +93,7 @@ export const updatePetrostation = async (id, updatedClaim, dispatch) => {
 export const addPetrostation = async (claim, dispatch) => {
   dispatch(addPetrostationStart());
   try {
-    const res = await userRequest.post(`/claim/createclaim`, claim);
+    const res = await userRequest.post(`/petrostation/petrocreate`, claim);
     dispatch(addPetrostationSuccess(res.data));
   } catch (err) {
     dispatch(addPetrostationFailure());
