@@ -28,8 +28,8 @@ export const productSlice = createSlice({
     },
     deletePetrostationSuccess: (state, action) => {
       state.isFetching = false;
-      state.claims.splice(
-        state.claims.findIndex((claim) => claim._id === action.payload),
+      state.petrostations.splice(
+        state.petrostations.findIndex((petrostation) => petrostation._id === action.payload),
         1
       );
     },
@@ -44,9 +44,9 @@ export const productSlice = createSlice({
     },
     updatePetrostationSuccess: (state, action) => {
       state.isFetching = false;
-      state.claims[
-        state.claims.findIndex((claim) => claim._id === action.payload.id)
-      ] = action.payload.updatedclaim;
+      state.petrostations[
+        state.petrostations.findIndex((petrostation) => petrostation._id === action.payload.id)
+      ] = action.payload.updatedPetrost;
     },
     updatePetrostationFailure: (state) => {
       state.isFetching = false;

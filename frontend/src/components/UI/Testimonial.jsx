@@ -42,7 +42,7 @@ const Testimonial = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        "I'm so pleased with the product I purchased from your website. It exceeded my expectations and I'm definitely a returning customer!" 
+        "I'm so pleased with the Oil I purchased from your website. It exceeded my expectations and I'm definitely a returning customer!" 
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
@@ -57,7 +57,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        "I recently bought a product off your website and it arrived quickly and in perfect condition. Highly recommend!"
+        "I recently bought a tyres from you and they arrived quickly and in perfect condition. Highly recommend!"
         </p>
         <div className="mt-3 d-flex align-items-center gap-4">
           <img src={ava02} alt="" className="w-25 h-25 rounded-2" />
@@ -86,7 +86,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        "I've been using your website for a few years now, and I'm always satisfied with the products I receive. Highly recommend!" 
+        "I've been using your website for a few years now, and I'm always satisfied with the service I receive. Highly recommend!" 
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">

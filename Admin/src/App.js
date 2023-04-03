@@ -33,9 +33,9 @@ const admin = localStorage.getItem('loggedIn');
 <Route path='/users' element={<UserList />} />
 <Route path='/user/:id' element={<User />}/>
 <Route path='/newUser' element={<Newuser />}/>
-<Route path='/claim/:id' element={<Claim />}/>
-<Route path='/claims' element={<ClaimList />}/>
-<Route path='/newClaim' element={<NewClaim />}/>  
+<Route path='/petrostation/:id' element={<Claim />}/>
+<Route path='/petrostation' element={<ClaimList />}/>
+<Route path='/newPetrostation' element={<NewClaim />}/>  
     </Routes>
     </div>
       </>

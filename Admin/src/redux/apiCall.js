@@ -78,14 +78,14 @@ export const deletePetrostations = async (id, dispatch) => {
   }
 };
 
-export const updatePetrostation = async (id, updatedClaim, dispatch) => {
+export const updatePetrostation = async (id, updatedPetrost, dispatch) => {
   dispatch(updatePetrostationStart());
   try {
     //update in mongodb
-  const res =   await userRequest.patch(`/petrostation/${id}`,updatedClaim);
+  const res =   await userRequest.patch(`/petrostation/${id}`,updatedPetrost);
   console.log(res)
     // update in our state.
-    dispatch(updatePetrostationSuccess({ id, updatedClaim }));
+    dispatch(updatePetrostationSuccess({ id, updatedPetrost }));
   } catch (err) {
     dispatch(updatePetrostationFailure());
   }
@@ -127,12 +127,12 @@ dispatch(deleteUserFailure());
 }
 
 //update User
-export const updateUser = async(id,user,dispatch)=>{
+export const updateUser = async(id,updatedUser,dispatch)=>{
+  const res =   await userRequest.patch(`/user/${id}`,updatedUser);
 dispatch(updateUserStart())
 try
 {
-
-dispatch(updateUserSuccess({id,user}))
+dispatch(updateUserSuccess({id,updatedUser}))
 }catch(err){
   dispatch(updateUserFailure)
 }
@@ -144,7 +144,7 @@ export const addUser = async (user, dispatch) => {
   console.log(user);
   dispatch(addUserStart());
   try {
-    const res = await userRequest.post(`/user/createUser`, user);
+    const res = await userRequest.post(`/user/register`, user);
     console.log(res);
     dispatch(addUserSuccess(res.data));
   } catch (err) {

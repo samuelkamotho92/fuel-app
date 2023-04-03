@@ -45,7 +45,19 @@ AuthSchema.pre('save',async function (next) {
     next();
 })
 
-AuthSchema.methods
+AuthSchema.statics.login = async function (email,password) {
+    const member = await this.findOne({email}); 
+    console.log(member);
+    if(member)
+    {
+  const auth = await bcrypt.compare(password,member.password);
+  if(auth){
+ return member;
+  }
+  throw Error("incorrect password");
+    }
+    throw Error("incorrect email");
+  }
 
 const Authmodel = mongoose.model('user',AuthSchema);
 module.exports = Authmodel;

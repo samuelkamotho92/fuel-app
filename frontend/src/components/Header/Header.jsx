@@ -1,25 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef ,useState} from "react";
 
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../styles/header.css";
 
+import { useAuthContext } from "../../hooks/consumeContext";
+import { useLogout } from "../../hooks/userLogOutHook";
 const navLinks = [
   {
     path: "/",
     display: "Home",
-  },
-  {
-    path: "/contact",
-    display: "Contact",
-  },
+  }
 ];
 
 const Header = () => {
+  const {user} = useAuthContext('test@gmail.com');
+console.log(user?.getUser.email);
   const menuRef = useRef(null);
-
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
 
+
+  const {logout} = useLogout();
+  const handleLogout = ()=>{
+    console.log('logged out');
+    logout()
+  }
   return (
     <header className="header">
 
@@ -68,10 +73,27 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="nav__right">
+{
+  user && (
+    <div className="nav__right">
+    <p style={{backgroundColor:'red'}}>Welcome back {user?.getUser.email}</p>
+    <button onClick={()=>handleLogout()}>LOG OUT</button>
+      </div>
+  )
+}
+{
+!user && (
+  <div className="nav__right">
+  <a href='/login'>Login</a>
+  <a href='/register'>Register</a>
+    </div>
+)
+}
+            {/* <div className="nav__right">
           <a href='/login'>Login</a>
           <a href='/register'>Register</a>
-            </div>
+          <p style={{backgroundColor:'red'}}>{user?.getUser.email}</p>
+            </div> */}
           </div>
         </Container>
       </div>

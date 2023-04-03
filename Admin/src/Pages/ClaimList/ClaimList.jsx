@@ -44,7 +44,7 @@ console.log(petrostation);
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/claim/" + params.row._id}>
+            <Link to={"/petrostation/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline

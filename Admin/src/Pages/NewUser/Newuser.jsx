@@ -15,9 +15,11 @@ console.log(inputs);
 
   const handleClick = (e)=>{
     e.preventDefault();
-    const claim = {...inputs};
-    console.log(claim)
-    addUser(claim,dispatch);
+    const user = {...inputs};
+    console.log(user)
+    addUser(user,dispatch);
+    alert('new user created');
+    window.location.replace('/');
   }
   return (
     <div className="newUser">

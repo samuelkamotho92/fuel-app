@@ -28,61 +28,67 @@ export default function NewProduct() {
           const petro = { ...inputs};
           console.log(petro);
           addPetrostation(petro, dispatch);
+          alert('add new petrostation');
+          window.location.replace('/');
   };
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Claim</h1>
+      <h1 className="addProductTitle">New Petrostation</h1>
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Car Owner</label>
+          <label>Petrostation Name</label>
           <input
-            name="carOwner"
+            name="name"
             type="text"
-            placeholder="Car Owner"
+            placeholder="Petrostation Name"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>phoneNumber</label>
+          <label>Fuel Types</label>
           <input
-            name="phoneNumber"
-            type="number"
+            name="fuelTypes"
+            type="string"
             placeholder="0700112233"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Registartion</label>
+          <label>Services</label>
           <input
-            name="registrationNo"
+            name="services"
             type="string"
-            placeholder="Registartion No"
+            placeholder="Services"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Vehicle Type</label>
+          <label>Descrciption</label>
           <input
-            name="vehicleType"
+            name="description"
             type="string"
-            placeholder="vehicleType"
+            placeholder="Description"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Vehicle Purpose</label>
-    <select defaultValue={'DEFAULT'}  onChange={handleChange}>
-  <option value="DEFAULT" disabled>Choose vehicle purpose ...</option>
-  <option value="personal">Personal</option>
-  <option value="psv">PSV</option>
-</select>
+          <label>latitude</label>
+          <input
+            name="latitude"
+            type="string"
+            placeholder="latitude"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
-          <label>Submitted by</label>
-          <input type="text" 
-          name="submittedBy"
-          placeholder="Submitted By" onChange={handleChange} />
+          <label>longitude</label>
+          <input
+            name="longitude"
+            type="string"
+            placeholder="longitude"
+            onChange={handleChange}
+          />
         </div>
         <button onClick={handleClick} className="addProductButton">
           Create

@@ -31,6 +31,44 @@ resp.status(404).json(err);
   }
 }
 
+exports.updatePetro = async(req,resp)=>{
+  console.log(req.body);
+  console.log(req.params.id)
+  try{
+      const id = req.params.id;
+      console.log(req.body);
+      const updatedPetro = await Petrostation.findByIdAndUpdate(id,req.body,{
+          new:true,
+          runValidators:true
+      });
+      console.log(updatedPetro);
+      resp.status(201).json({
+          status:"success",
+          petrostation:updatedPetro
+      })
+  }catch(err){
+      resp.status(404).json({
+          status:'failure',
+          error:err
+      })
+  } 
+}
+
+exports.deletePetrostation = async (req,resp)=>{
+  try
+  {
+      const id = req.params.id;
+      console.log(id);
+      const deletedPetro = await Petrostation.findByIdAndDelete(id);
+      console.log(deletedPetro);
+      resp.status(204).json({
+          status:'deleted',
+          data:[]
+      })
+  }catch(err){
+      resp.status(404).json(err)
+  }
+}
 
 
 exports.withinRadius = async (req,res)=>{

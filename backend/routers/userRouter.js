@@ -11,10 +11,14 @@ router
 .get(userAuthCont.getUser)
 .patch(userAuthCont.updateUser)
 .delete(userAuthCont.deleteUser)
+
 router
 .route('/register')
 .post(userAuthCont.register);
 
+router
+.route('/login')
+.post(userAuthCont.login)
 
 
 module.exports = router

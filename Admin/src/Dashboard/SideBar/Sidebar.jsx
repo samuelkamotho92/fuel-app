@@ -47,7 +47,7 @@ const Sidebar = () => {
               Users
             </li>
           </Link>
-          <Link to="/claims" className="link">
+          <Link to="/petrostation" className="link">
             <li className="sidebarListItem">
               <Storefront className="sidebarIcon" />
               Petrostation

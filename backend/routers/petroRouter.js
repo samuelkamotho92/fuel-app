@@ -12,7 +12,8 @@ router
 router
 .route('/:id')
 .get(Petro.getOnePetro)
-
+.patch(Petro.updatePetro)
+.delete(Petro.deletePetrostation)
 
 router
 .route('/petroWithin/:distance/center/:latlng/unit/:unit')

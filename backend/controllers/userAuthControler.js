@@ -1,24 +1,49 @@
 const User = require('../Models/userAuth');
+const jwtoken = require('jsonwebtoken');
+let maxAge = 3*24*60*60
+const createjwt = (id)=>{
+    return jwtoken.sign({id},process.env.SECRET,{
+        expiresIn:maxAge
+    })
+ };
+
 exports.register = async(req,res)=>{
     console.log(req.body);
     try{
  const userRegistered = await User.create(req.body);
- res.status(200).json(userRegistered);
+ const id = userRegistered._id;
+ const tk = createjwt(id);
+ res.cookie('user',tk,{httpOnly:true,maxAge: maxAge* 1000});
+ res.status(200).json({
+    userRegistered,
+    tk});
     }catch(err){
         console.log(err)
     }
 }
 exports.login = async(req,res)=>{
-    const {email,password} = req.body;
-    console.log(email,password);
-    const getUser = await User.find({email:email})
-console.log(getUser);
+    try{
+        const {email,password} = req.body;
+        console.log(email,password);
+        const getUser = await User.login(email,password);
+        console.log(getUser)
+        const id = getUser._id;
+        const tk = createjwt(id);
+        res.cookie('user',tk,{httpOnly:true,maxAge: maxAge* 1000})
+    console.log(getUser);
+    res.status(200).json({
+        getUser,
+        tk
+    })
+    }catch(err){
+        res.status(404).json(err)
+    }
 }
 
 exports.getUsers = async(req,resp)=>{
     try{
         const getUsers = await User.find();
-        console.log(getUsers)
+        // console.log(getUsers)
         resp.status(200).json(getUsers)
     }catch(err){
 resp.status(404).json(err)

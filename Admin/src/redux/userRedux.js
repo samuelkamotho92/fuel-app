@@ -59,7 +59,7 @@ state.error = true
       state.isFetching = false;
       state.currentUser[
         state.currentUser.findIndex((user) => user._id === action.payload.id)
-      ] = action.payload.product;
+      ] = action.payload.updatedUser;
     },
     updateUserFailure: (state) => {
       state.isFetching = false;
