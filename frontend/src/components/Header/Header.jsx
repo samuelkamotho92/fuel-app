@@ -1,4 +1,4 @@
-import React, { useRef ,useState} from "react";
+import React, { useRef, useState } from "react";
 
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
@@ -10,18 +10,26 @@ const navLinks = [
   {
     path: "/",
     display: "Home",
-  }
+  },
+  {
+    path: "/about",
+    display: "about",
+  },
+  {
+    path: "/services",
+    display: "services",
+  },
 ];
 
 const Header = () => {
-  const {user} = useAuthContext('test@gmail.com');
-console.log(user?.getUser.email);
+  const { user } = useAuthContext('test@gmail.com');
+  console.log(user?.getUser.email);
   const menuRef = useRef(null);
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
 
 
-  const {logout} = useLogout();
-  const handleLogout = ()=>{
+  const { logout } = useLogout();
+  const handleLogout = () => {
     console.log('logged out');
     logout()
   }
@@ -73,22 +81,22 @@ console.log(user?.getUser.email);
               </div>
             </div>
 
-{
-  user && (
-    <div className="nav__right">
-    <p style={{backgroundColor:'red'}}>Welcome back {user?.getUser.email}</p>
-    <button onClick={()=>handleLogout()}>LOG OUT</button>
-      </div>
-  )
-}
-{
-!user && (
-  <div className="nav__right">
-  <a href='/login'>Login</a>
-  <a href='/register'>Register</a>
-    </div>
-)
-}
+            {
+              user && (
+                <div className="nav__right">
+                  <p style={{ backgroundColor: 'red' }}>Welcome back {user?.getUser.email}</p>
+                  <button onClick={() => handleLogout()}>LOG OUT</button>
+                </div>
+              )
+            }
+            {
+              !user && (
+                <div className="nav__right">
+                  <a href='/login'>Login</a>
+                  <a href='/register'>Register</a>
+                </div>
+              )
+            }
             {/* <div className="nav__right">
           <a href='/login'>Login</a>
           <a href='/register'>Register</a>

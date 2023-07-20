@@ -32,9 +32,7 @@ console.log(err)
       center: [lng, lat],
       zoom: zoom
     });
-    const marker = new mapboxgl.Marker({color: "red"})
-    .setLngLat([lng, lat])
-    .addTo(map.current);
+    const marker = new mapboxgl.Marker({color: "red"}).setLngLat([lng, lat]).addTo(map.current);
     const getPetrostation = async()=>{
       const url = 'http://localhost:5000/api/v1/petrostation/getPetro'
   const resp = await fetch(url);

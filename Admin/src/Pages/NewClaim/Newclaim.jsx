@@ -25,11 +25,11 @@ export default function NewProduct() {
 
   const handleClick = (e) => {
     e.preventDefault();
-          const petro = { ...inputs};
-          console.log(petro);
-          addPetrostation(petro, dispatch);
-          alert('add new petrostation');
-          window.location.replace('/');
+    const petro = { ...inputs };
+    console.log(petro);
+    addPetrostation(petro, dispatch);
+    alert('add new petrostation');
+    window.location.replace('/');
   };
 
   return (
@@ -58,7 +58,7 @@ export default function NewProduct() {
           <label>Services</label>
           <input
             name="services"
-            type="string"
+            type='text'
             placeholder="Services"
             onChange={handleChange}
           />
@@ -67,7 +67,7 @@ export default function NewProduct() {
           <label>Descrciption</label>
           <input
             name="description"
-            type="string"
+            type="text"
             placeholder="Description"
             onChange={handleChange}
           />
@@ -76,7 +76,7 @@ export default function NewProduct() {
           <label>latitude</label>
           <input
             name="latitude"
-            type="string"
+            type="text"
             placeholder="latitude"
             onChange={handleChange}
           />
@@ -85,7 +85,7 @@ export default function NewProduct() {
           <label>longitude</label>
           <input
             name="longitude"
-            type="string"
+            type="text"
             placeholder="longitude"
             onChange={handleChange}
           />

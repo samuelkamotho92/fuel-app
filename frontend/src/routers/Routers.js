@@ -14,19 +14,24 @@ import SignInSide from "../pages/Login";
 import { useAuthContext } from "../hooks/consumeContext";
 import { Nav } from "reactstrap";
 const Routers = () => {
-  const {user} = useAuthContext();
+  const { user } = useAuthContext();
   return (
     <Routes>
       {/* <Route path="/" element={<Navigate to="/home" />} /> */}
-      <Route path="/" element={user ? <Map />: <Navigate to='/login'/>}/>
-      <Route path="/petrostation/:id" element={<Home />}/>
+      <Route path="/" element={user ? <Map /> : <Navigate to="/login" />} />
+      <Route path="/petrostation/:id" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<CarListing />} />
       <Route path="/services/:slug" element={<CarDetails />} />
-      <Route path="/register" element={!user ?<SignUp />:<Navigate to='/'/>}/>
-      <Route path="/login" element={!user ? <SignInSide />:<Navigate to='/'/>}/>
+      <Route
+        path="/register"
+        element={!user ? <SignUp /> : <Navigate to="/" />}
+      />
+      <Route
+        path="/login"
+        element={!user ? <SignInSide /> : <Navigate to="/" />}
+      />
       <Route path="*" element={<NotFound />} />
-     
     </Routes>
   );
 };
